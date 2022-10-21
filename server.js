@@ -19,8 +19,9 @@ const app = express();
 
 const authRouter =  require('./routes/auth')
 
+// // Mounting routes
+app.use('/', authRouter);
 app.use('/', authRouter)
-
 
 app.use(expressLayouts)
 app.use(bodyParser.json())
@@ -31,6 +32,8 @@ app.listen(PORT, () => {
     console.log(`Wine is running on port ${PORT}`);
 })
 
+
+// Database Connection
 mongoose.connect(process.env.MongoDBURL,
     {useNewUrlParser: true , useUnifiedTopology: true},
     () => {
