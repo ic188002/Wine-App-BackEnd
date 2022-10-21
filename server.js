@@ -4,9 +4,11 @@ const express = require('express');
 // Require and Initialze dotenv
 require('dotenv').config();
 
+const expressLayouts = require('express-ejs-layouts');
 
 // Require Mongoose
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser')
 
 // Port Configuration
 const PORT = process.env.PORT;
@@ -15,9 +17,14 @@ const PORT = process.env.PORT;
 // Initialze Express
 const app = express();
 
+const authRouter =  require('./routes/auth')
+
+app.use('/', authRouter)
 
 
-
+app.use(expressLayouts)
+app.use(bodyParser.json())
+app.set("view engine", "ejs")
 
 
 app.listen(PORT, () => {
