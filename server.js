@@ -21,9 +21,10 @@ const authRouter =  require('./routes/auth')
 
 // // Mounting routes
 app.use('/', authRouter);
-app.use('/', authRouter)
+
 
 app.use(expressLayouts)
+// bodyparser used to recognise json 
 app.use(bodyParser.json())
 app.set("view engine", "ejs")
 
