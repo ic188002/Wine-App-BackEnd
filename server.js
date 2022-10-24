@@ -18,9 +18,11 @@ const PORT = process.env.PORT;
 const app = express();
 
 const authRouter =  require('./routes/auth')
+const favouriteWineRouter = require('./routes/favouriteWines')
 
 // // Mounting routes
 app.use('/', authRouter);
+app.use('/', favouriteWineRouter);
 
 
 app.use(expressLayouts)
