@@ -5,7 +5,6 @@ const {Wines} = require("../models/Wines");
 exports.favouriteWine_create_post = (req, res) => {
     let favouriteWine = new FavouriteWine(req.body);
     console.log(favouriteWine + "This is to check favourite wine on line 7 controllers.")
-
     favouriteWine.save()
     .then(() => {
         res.json({favouriteWine});
