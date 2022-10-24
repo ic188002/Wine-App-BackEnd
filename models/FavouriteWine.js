@@ -12,7 +12,6 @@ const favouriteWineSchema = mongoose.Schema({
     }],
     wine: [{ type: mongoose.Schema.Types.ObjectId,
          ref: 'Wines'
-
     }]
 
 }, 
