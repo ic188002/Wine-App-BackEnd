@@ -25,7 +25,7 @@ const userSchema = mongoose.Schema({
         required: true,
         minlength: [6, "Your password is too weak..."]
     },
-    FavouriteWines: [{ type: mongoose.Schema.Types.ObjectId,
+    favouriteWine: [{ type: mongoose.Schema.Types.ObjectId,
         ref: 'FavouriteWines'
    }]
 
