@@ -2,7 +2,7 @@ const User = require("../models/User")
 const jwt= require("jsonwebtoken")
 
 const bcrypt = require('bcrypt');
-const { FavouriteWines } = require("../models/FavouriteWines");
+const { FavouriteWine } = require("../models/FavouriteWine");
 const salt = 10;
 
 exports.auth_signup_get =(req, res) => {
