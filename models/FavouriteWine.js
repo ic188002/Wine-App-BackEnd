@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const favouriteWineSchema = mongoose.Schema({
     name: String,
     description: String,
+    wineNights: String,
     user: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
@@ -18,7 +19,7 @@ const favouriteWineSchema = mongoose.Schema({
 );
 
 // Model
-const FavouriteWine = mongoose.model("FavouriteWine", favouriteWineSchema);
+const FavouriteWine = mongoose.model("FavouriteWines", favouriteWineSchema);
 
 // Exporting to other files.
 module.exports = {FavouriteWine};

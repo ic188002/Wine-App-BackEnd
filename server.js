@@ -18,11 +18,15 @@ const PORT = process.env.PORT;
 const app = express();
 
 const authRouter =  require('./routes/auth')
+const favouriteWineRouter = require('./routes/favouriteWines')
 
-app.use('/', authRouter)
+// // Mounting routes
+app.use('/', authRouter);
+app.use('/', favouriteWineRouter);
 
 
 app.use(expressLayouts)
+// bodyparser used to recognise json 
 app.use(bodyParser.json())
 app.set("view engine", "ejs")
 
@@ -31,6 +35,8 @@ app.listen(PORT, () => {
     console.log(`Wine is running on port ${PORT}`);
 })
 
+
+// Database Connection
 mongoose.connect(process.env.MongoDBURL,
     {useNewUrlParser: true , useUnifiedTopology: true},
     () => {
