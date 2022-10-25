@@ -10,5 +10,6 @@ const isLoggedIn = require('../helper/isLoggedIn');
 // Routes
 router.post('/favouritewine/add', favouriteWineCtrl.favouriteWine_create_post);
 router.get('/favouritewine/index', favouriteWineCtrl.UserfavouriteWine_index_get);
+router.delete("/favouritewine/delete", favouriteWineCtrl.UserfavouriteWine_delete);
 
 module.exports = router;
