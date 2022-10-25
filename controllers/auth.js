@@ -75,7 +75,5 @@ exports.auth_signin_post = async(req, res) => {
         res.json({"message": "You are not logged in"}).status(400)
         console.log(error)
     }
-
-
 }
 
