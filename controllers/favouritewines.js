@@ -38,7 +38,7 @@ exports.UserfavouriteWine_index_get = (req, res) => {
 }
 
 exports.UserfavouriteWine_delete = (req, res) => {
-    console.log(req.query.id);
+    console.log(req.query._id);
 
     FavouriteWine.findByIdAndDelete(req.query._id)
     .then((favouriteWine) => {
@@ -50,39 +50,26 @@ exports.UserfavouriteWine_delete = (req, res) => {
 }
 
 
-// app.post('/addBook', async (req, res)=>{
+exports.UserfavouriteWine_edit_get = (req, res) => {
+    console.log(req.query._id);
 
+    FavouriteWine.findById(req.query._id)
+    .then((favouriteWine) => {
+        res.json({favouriteWine})
+    })
+    .catch(err => {
+        console.loog(err);
+    })
 
-//     /**
-//      * @tutorial: steps
-//      * 1. Authenticate publisher and get user _id.
-//      * 2. Assign user id from signed in publisher to publisher key.
-//      * 3. Call save method on Book.
-//     */
- 
-//     try {
-//        //validate data as required
- 
-//        const book = new Book(req.body);
-//        // book.publisher = publisher._id; <=== Assign user id from signed in publisher to publisher key
-//        await book.save();
- 
-//        /**
-//         * @tutorial: steps
-//         * 1. Find the publishing house by Publisher ID.
-//         * 2. Call Push method on publishedBook key of Publisher.
-//         * 3. Pass newly created book as value.
-//         * 4. Call save method.
-//        */
-//        const publisher = await Publisher.findById({_id: book.publisher})
-//        publisher.publishedBooks.push(book);
-//        await publisher.save();
- 
-//        //return new book object, after saving it to Publisher
-//        res.status(200).json({success:true, data: book })
- 
-//     } catch (err) {
-//        res.status(400).json({success: false, message:err.message})
-//     }
-//  })
- 
+}
+
+exports.UserfavouriteWine_update_put = (req, res) => {
+    console.log(req.body._id)
+    FavouriteWine.findByIdAndUpdate(req.body._id, req.body, {new: true})
+    .then((favouriteWine) => {
+        res.json(favouriteWine)
+    })
+    .catch(err => {
+        console.log(err)
+    })
+}
