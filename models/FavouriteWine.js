@@ -6,7 +6,9 @@ const favouriteWineSchema = mongoose.Schema({
     name: String,
     description: String,
     wineNights: String,
-    user: String,
+    user: {type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+   },
     wine: [{ type: mongoose.Schema.Types.ObjectId,
          ref: 'Wines'
     }]
