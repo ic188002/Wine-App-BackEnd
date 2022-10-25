@@ -25,10 +25,11 @@ const userSchema = mongoose.Schema({
         required: true,
         minlength: [6, "Your password is too weak..."]
     },
-    favouriteWine: [{ type: mongoose.Schema.Types.ObjectId,
-        ref: 'FavouriteWines'
-   }]
 
+    // this was a capital before , so changed to work with old users
+   favouritewine: [{ type: mongoose.Schema.Types.ObjectId,
+    ref: 'FavouriteWines'
+}]
 },
 {
     timestamps: true
