@@ -27,7 +27,7 @@ exports.favouriteWine_create_post = async (req, res) => {
 }
 
 exports.UserfavouriteWine_index_get = (req, res) => {
-     User.findById(req.query.id).populate('favouritewine')
+     User.findById(req.query._id).populate('favouritewine')
     .then(user => {
         // console.log(favouriteWines)
         res.json({user:user})
@@ -37,7 +37,17 @@ exports.UserfavouriteWine_index_get = (req, res) => {
     })
 }
 
+exports.UserfavouriteWine_delete = (req, res) => {
+    console.log(req.query.id);
 
+    FavouriteWine.findByIdAndDelete(req.query._id)
+    .then((favouriteWine) => {
+        res.json({favouriteWine})
+    })
+    .catch(err => {
+        console.log(err);
+    })
+}
 
 
 // app.post('/addBook', async (req, res)=>{
