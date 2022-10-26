@@ -1,6 +1,6 @@
 
 const {FavouriteWine} = require("../models/FavouriteWine");
-const {Wines} = require("../models/Wines");
+const {Wine} = require("../models/Wine");
 const User = require("../models/User");
 
 exports.favouriteWine_create_post = async (req, res) => {
@@ -17,8 +17,6 @@ exports.favouriteWine_create_post = async (req, res) => {
      await user.save();
      console.log(user + "FROM LINE 12")
      res.status(200).json({success: true, favouriteWine: favouriteWine})
-    
-
  }
     catch(err){
         console.log(err);
