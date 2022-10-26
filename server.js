@@ -19,10 +19,13 @@ const app = express();
 
 const authRouter =  require('./routes/auth')
 const favouriteWineRouter = require('./routes/favouriteWines')
+const wineRouter = require('./routes/wine')
 
 // // Mounting routes
 app.use('/', authRouter);
 app.use('/', favouriteWineRouter);
+app.use('/', wineRouter);
+
 
 
 app.use(expressLayouts)
