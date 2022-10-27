@@ -35,6 +35,17 @@ exports.UserfavouriteWine_index_get = (req, res) => {
     })
 }
 
+exports.UserfavouriteWine_showDetails_get =(req, res) =>{
+   FavouriteWine.findById(req.query.id).populate('wine')
+    .then( favouritewine=>{
+        console.log(favouritewine)
+        res.json({favouritewine})
+    })
+    .catch(err => {
+        console.log(err)
+    })
+}
+
 exports.UserfavouriteWine_delete = (req, res) => {
     console.log(req.query._id);
 
