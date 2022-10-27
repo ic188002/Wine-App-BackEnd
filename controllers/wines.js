@@ -19,3 +19,15 @@ exports.wine_create_post = async (req, res) => {
     }
 }
 
+// HTTP DELETE - Author
+exports.wine_delete_get = (req, res) => {
+    console.log(req.query._id);
+
+    Wine.findByIdAndDelete(req.query._id)
+    .then((wine) => {
+        res.json({wine})
+    })
+    .catch(err => {
+        console.log(err);
+    })
+}
