@@ -1,8 +1,15 @@
 // Require Express
 const express = require('express');
 
+// Initialze Express
+const app = express();
+
 // Require and Initialze dotenv
 require('dotenv').config();
+
+const path = require('path')
+
+app.use(express.static(path.join(__dirname, 'build')));
 
 const expressLayouts = require('express-ejs-layouts');
 
@@ -14,8 +21,7 @@ const bodyParser = require('body-parser')
 const PORT = process.env.PORT;
 
 
-// Initialze Express
-const app = express();
+
 
 const authRouter =  require('./routes/auth')
 const favouriteWineRouter = require('./routes/favouriteWines')
@@ -37,7 +43,10 @@ app.set("view engine", "ejs")
 app.listen(PORT, () => {
     console.log(`Wine is running on port ${PORT}`);
 })
-
+//connecting the fron tnad back end
+app.get("/*", function (req, res){
+    res.sendFile(path.join(__dirname, 'build', 'index.html'))
+})
 
 // Database Connection
 mongoose.connect(process.env.MongoDBURL,
@@ -46,3 +55,4 @@ mongoose.connect(process.env.MongoDBURL,
         console.log("MongoDB connected!")
     }
 );
+//mongodb+srv://ic188002:TheBaron1997@cluster0.uh6s9sb.mongodb.net/WineAppProduction?retryWrites=true&w=majority
