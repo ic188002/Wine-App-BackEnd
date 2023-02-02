@@ -40,9 +40,9 @@ app.use(bodyParser.json())
 app.set("view engine", "ejs")
 
 
-app.listen(PORT, () => {
-    console.log(`Wine is running on port ${PORT}`);
-})
+// app.listen(PORT, () => {
+//     console.log(`Wine is running on port ${PORT}`);
+// })
 //connecting the fron tnad back end
 app.get("/*", function (req, res){
     res.sendFile(path.join(__dirname, 'build', 'index.html'))
